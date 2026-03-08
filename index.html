@@ -48,11 +48,11 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="vendor/animate/animate.min.css" rel="stylesheet">
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
@@ -300,160 +300,162 @@
 
         }
 
- .carousel-item {
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
+        .carousel-item {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
 
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-}
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
 
-.carousel-content {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    padding: 15px;
-}
+        .carousel-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 15px;
+        }
 
-/* Text Animation */
-.animate-text {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s forwards;
-    color: white;
-}
+        /* Text Animation */
+        .animate-text {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s forwards;
+            color: white;
+        }
 
-.delay-1 { animation-delay: 0.4s; }
-.delay-2 { animation-delay: 0.8s; }
+        .delay-1 {
+            animation-delay: 0.4s;
+        }
 
-.carousel-item.active .animate-text {
-    animation-play-state: running;
-}
+        .delay-2 {
+            animation-delay: 0.8s;
+        }
 
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        .carousel-item.active .animate-text {
+            animation-play-state: running;
+        }
 
-.carousel-content h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 700;
-    margin-bottom: 15px;
-}
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.carousel-content p {
-    font-size: clamp(1rem, 3vw, 1.4rem);
-    margin-bottom: 25px;
-}
+        .carousel-content h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
 
-.carousel-content .btn {
-    padding: 12px 34px;
-    background: purple;
-    color: #fff;
-    border-radius: 40px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
+        .carousel-content p {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            margin-bottom: 25px;
+        }
 
-.carousel-content .btn:hover {
-    background: #1fcf69;
-    transform: scale(1.05);
-}
+        .carousel-content .btn {
+            padding: 12px 34px;
+            background: purple;
+            color: #fff;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
 
-/* Mobile height fix */
-@media (max-width: 768px) {
-    .carousel-item {
-        height: 90vh;
-    }
-}
+        .carousel-content .btn:hover {
+            background: #1fcf69;
+            transform: scale(1.05);
+        }
 
-
-
-
-/* Section Header */
-.section-header h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1f2937;
-}
-
-.section-header h2::after {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 3px;
-  background: linear-gradient(90deg, #22c55e, #16a34a);
-  margin: 12px auto 0;
-  border-radius: 10px;
-}
-
-/* Carousel container */
-#feedbackCarousel {
-  max-width: 900px;
-  margin: auto;
-}
-
-/* Carousel inner spacing */
-#feedbackCarousel .carousel-inner {
-  padding: 30px 0;
-}
-
-/* Feedback images */
-#feedbackCarousel img {
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
-}
-
-/* Active image zoom */
-#feedbackCarousel .carousel-item.active img {
-  transform: scale(1.03);
-}
-
-/* Smooth fade */
-.carousel-fade .carousel-item {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.carousel-fade .carousel-item.active {
-  opacity: 1;
-}
-
-/* Remove controls completely */
-.carousel-control-prev,
-.carousel-control-next,
-.carousel-indicators {
-  display: none !important;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .section-header h2 {
-    font-size: 1.7rem;
-  }
-
-  #feedbackCarousel img {
-    max-height: 260px !important;
-  }
-}
+        /* Mobile height fix */
+        @media (max-width: 768px) {
+            .carousel-item {
+                height: 90vh;
+            }
+        }
 
 
 
+
+        /* Section Header */
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .section-header h2::after {
+            content: "";
+            display: block;
+            width: 90px;
+            height: 3px;
+            background: linear-gradient(90deg, #22c55e, #16a34a);
+            margin: 12px auto 0;
+            border-radius: 10px;
+        }
+
+        /* Carousel container */
+        #feedbackCarousel {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* Carousel inner spacing */
+        #feedbackCarousel .carousel-inner {
+            padding: 30px 0;
+        }
+
+        /* Feedback images */
+        #feedbackCarousel img {
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
+        }
+
+        /* Active image zoom */
+        #feedbackCarousel .carousel-item.active img {
+            transform: scale(1.03);
+        }
+
+        /* Smooth fade */
+        .carousel-fade .carousel-item {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-fade .carousel-item.active {
+            opacity: 1;
+        }
+
+        /* Remove controls completely */
+        .carousel-control-prev,
+        .carousel-control-next,
+        .carousel-indicators {
+            display: none !important;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 1.7rem;
+            }
+
+            #feedbackCarousel img {
+                max-height: 260px !important;
+            }
+        }
     </style>
 </head>
 
@@ -490,108 +492,127 @@
         </ul>
     </nav>
 
-    
-    <div id="headerCarousel" class="carousel slide carousel-fade" 
-     data-bs-ride="carousel" 
-     data-bs-interval="4500"
-     data-bs-pause="false">
 
-    <div class="carousel-inner">
+    <div id="headerCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4500"
+        data-bs-pause="false">
 
-        <div class="carousel-item active" style="background-image:url('img/blog-22.jpg')">
-            <div class="overlay"></div>
-            <div class="carousel-content">
-                <h1 class="animate-text">Welcome To Ananta Yoga</h1>
-                <p class="animate-text delay-1">Yoga For Life – Begin Your Inner Journey</p>
-                <a href="#about" class="btn animate-text delay-2">About Us</a>
+        <div class="carousel-inner">
+
+            <div class="carousel-item active" style="background-image:url('img/holi\ 6.jpg')">
+                <div class="overlay"></div>
+                <div class="carousel-content">
+                    <h1 class="animate-text">Welcome To Ananta Yoga</h1>
+                    <p class="animate-text delay-1">Yoga For Life – Begin Your Inner Journey</p>
+                    <a href="#about" class="btn animate-text delay-2">About Us</a>
+                </div>
             </div>
-        </div>
 
-        <div class="carousel-item" style="background-image:url('img/blog-27.jpg')">
-            <div class="overlay"></div>
-            <div class="carousel-content">
-                <h1 class="animate-text">Transform Your Lifestyle</h1>
-                <p class="animate-text delay-1">Healthy Mind • Strong Body • Peaceful Soul</p>
-                <a href="class.html" class="btn animate-text delay-2">Our Classes</a>
+
+            <div class="carousel-item" style="background-image:url('img/holi\ 5.jpg')">
+                <div class="overlay"></div>
+                <div class="carousel-content">
+                    <h1 class="animate-text">Transform Your Lifestyle</h1>
+                    <p class="animate-text delay-1">Healthy Mind • Strong Body • Peaceful Soul</p>
+                    <a href="class.html" class="btn animate-text delay-2">Our Classes</a>
+                </div>
             </div>
-        </div>
 
-        <div class="carousel-item" style="background-image:url('img/blog-1.jpg')">
-            <div class="overlay"></div>
-            <div class="carousel-content">
-                <h1 class="animate-text">Certified Yoga Trainers</h1>
-                <p class="animate-text delay-1">Learn From Experienced Gurus</p>
-                <a href="teacher.html" class="btn animate-text delay-2">Meet Trainers</a>
-            </div>
-        </div>
-
-        <div class="carousel-item" style="background-image:url('img/blog-13.jpg')">
-            <div class="overlay"></div>
-            <div class="carousel-content">
-                <h1 class="animate-text">Daily Yoga Sessions</h1>
-                <p class="animate-text delay-1">Morning & Evening Batches</p>
-                <a href="Admission Form.html" class="btn animate-text delay-2">Get Admission</a>
-            </div>
-        </div>
-
-        <div class="carousel-item" style="background-image:url('img/blog-25.jpg')">
-            <div class="overlay"></div>
-            <div class="carousel-content">
-                <h1 class="animate-text">Yoga For Everyone</h1>
-                <p class="animate-text delay-1">Kids • Adults • Seniors</p>
-                <a href="contact.html" class="btn animate-text delay-2">Contact Us</a>
-            </div>
-        </div>
-
-<div class="carousel-item" style="background-image:url('img/blog-38.jpg')">
+  <div class="carousel-item" style="background-image:url('img/holi 4.jpg')">
     <div class="overlay"></div>
     <div class="carousel-content">
-        <h1 class="animate-text">Awaken Your Inner Balance</h1>
-        <p class="animate-text delay-1">
-            Begin a peaceful journey of strength, flexibility & mindfulness with Ananta Yoga
-        </p>
-        <a href="Admission Form.html" class="btn animate-text delay-2">Start Your Journey</a>
+        <h1 class="animate-text">Celebrate Eco-Friendly Holi</h1>
+        <p class="animate-text delay-1">Play with Natural Flowers • Safe Colors • Protect Nature</p>
+        <a href="class.html" class="btn animate-text delay-2">Join the Celebration</a>
     </div>
 </div>
 
-<div class="carousel-item" style="background-image:url('img/blog-10.jpg')">
+<div class="carousel-item" style="background-image:url('img/holi 2.jpg')">
     <div class="overlay"></div>
     <div class="carousel-content">
-        <h1 class="animate-text">Yoga for a Healthy Lifestyle</h1>
-        <p class="animate-text delay-1">
-            Reduce stress, improve posture, and energize your body through daily yoga practice
-        </p>
-        <a href="Admission Form.html" class="btn animate-text delay-2">Join Ananta Yoga</a>
+        <h1 class="animate-text">Holi with Colors of Nature</h1>
+        <p class="animate-text delay-1">Flower Petals • Joyful Moments • Eco-Friendly Festival</p>
+        <a href="class.html" class="btn animate-text delay-2">Learn More</a>
     </div>
 </div>
 
-<div class="carousel-item" style="background-image:url('img/blog-11.jpg')">
-    <div class="overlay"></div>
-    <div class="carousel-content">
-        <h1 class="animate-text">Heal Your Body & Calm Your Mind</h1>
-        <p class="animate-text delay-1">
-            Experience holistic wellness with guided asanas, breathing & meditation
-        </p>
-        <a href="class.html" class="btn animate-text delay-2">Explore Programs</a>
+            
+
+            <div class="carousel-item" style="background-image:url('img/blog-1.jpg')">
+                <div class="overlay"></div>
+                <div class="carousel-content">
+                    <h1 class="animate-text">Certified Yoga Trainers</h1>
+                    <p class="animate-text delay-1">Learn From Experienced Gurus</p>
+                    <a href="teacher.html" class="btn animate-text delay-2">Meet Trainers</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" style="background-image:url('img/blog-13.jpg')">
+                <div class="overlay"></div>
+                <div class="carousel-content">
+                    <h1 class="animate-text">Daily Yoga Sessions</h1>
+                    <p class="animate-text delay-1">Morning & Evening Batches</p>
+                    <a href="Admission Form.html" class="btn animate-text delay-2">Get Admission</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" style="background-image:url('img/blog-25.jpg')">
+                <div class="overlay"></div>
+                <div class="carousel-content">
+                    <h1 class="animate-text">Yoga For Everyone</h1>
+                    <p class="animate-text delay-1">Kids • Adults • Seniors</p>
+                    <a href="contact.html" class="btn animate-text delay-2">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" style="background-image:url('img/blog-38.jpg')">
+                <div class="overlay"></div>
+                <div class="carousel-content">
+                    <h1 class="animate-text">Awaken Your Inner Balance</h1>
+                    <p class="animate-text delay-1">
+                        Begin a peaceful journey of strength, flexibility & mindfulness with Ananta Yoga
+                    </p>
+                    <a href="Admission Form.html" class="btn animate-text delay-2">Start Your Journey</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" style="background-image:url('img/blog-10.jpg')">
+                <div class="overlay"></div>
+                <div class="carousel-content">
+                    <h1 class="animate-text">Yoga for a Healthy Lifestyle</h1>
+                    <p class="animate-text delay-1">
+                        Reduce stress, improve posture, and energize your body through daily yoga practice
+                    </p>
+                    <a href="Admission Form.html" class="btn animate-text delay-2">Join Ananta Yoga</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" style="background-image:url('img/blog-11.jpg')">
+                <div class="overlay"></div>
+                <div class="carousel-content">
+                    <h1 class="animate-text">Heal Your Body & Calm Your Mind</h1>
+                    <p class="animate-text delay-1">
+                        Experience holistic wellness with guided asanas, breathing & meditation
+                    </p>
+                    <a href="class.html" class="btn animate-text delay-2">Explore Programs</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" style="background-image:url('img/kidyoga.png')">
+                <div class="overlay"></div>
+                <div class="carousel-content">
+                    <h1 class="animate-text">Joyful Yoga for Kids</h1>
+                    <p class="animate-text delay-1">
+                        Fun, focus & flexibility — nurturing young minds and healthy bodies through yoga
+                    </p>
+                    <a href="Admission Form.html" class="btn animate-text delay-2">Enroll Your Child</a>
+                </div>
+            </div>
+
+
+
+        </div>
+
     </div>
-</div>
-
-<div class="carousel-item" style="background-image:url('img/kidyoga.png')">
-    <div class="overlay"></div>
-    <div class="carousel-content">
-        <h1 class="animate-text">Joyful Yoga for Kids</h1>
-        <p class="animate-text delay-1">
-            Fun, focus & flexibility — nurturing young minds and healthy bodies through yoga
-        </p>
-        <a href="Admission Form.html" class="btn animate-text delay-2">Enroll Your Child</a>
-    </div>
-</div>
-
-        
-
-    </div>
-
-</div>
 
 
 
@@ -667,7 +688,7 @@
                     </div>
                 </div>
 
-            
+
 
 
                 <!-- Yoga Benefits Section -->
@@ -724,7 +745,7 @@
                                 </div>
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
 
@@ -957,130 +978,126 @@
                         </p>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="blog-img">
-                                <img src="img/blog-1.jpg" />
-                            </div>
-                            <div class="blog-col">
-                                <h4>🌿 Park Yoga Vibes </h4>
-                                <div class="blog-meta">
-                                    <p><i class="fa fa-clock-o"></i>Apr 1, 2019</p>
-                                    <p><i class="fa fa-user-o"></i>Admin</p>
-                                    <p><i class="fa fa-eye"></i>45 Views</p>
-                                    <p><i class="fa fa-comment-o"></i>5 Comments</p>
-                                </div>
-                                <p>
-                                    | Breathe. Stretch. Connect.
+                       <div class="col-md-6">
+                    <div class="blog-img">
+                        <img src="img/holi 1.jpg" />
+                    </div>
+                    <div class="blog-col">
+                        <h4>Play natural, celebrate a sustainable Holi! 🌿✨</h4>
+                        <div class="blog-meta">
 
-                                    Welcome to Park Yoga Vibes—your go-to space for all things outdoor yoga! Whether
-                                    you're a seasoned yogi or just unrolling your mat for the first time, we bring you
-                                    tips, stories, poses, and playlists to elevate your practice under open skies. Find
-                                    serenity beneath the trees, soak in the sun, and feel the earth beneath you. Nature
-                                    is your studio—let's flow.
-                                </p>
-                                <div class="view-more-btn text-center">
-                                    <a href="https://www.instagram.com/praveerpattanayak?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                                        id="view-more-link">
-                                        <button id="view-more" class="btn btn-primary">Read More</button>
-                                    </a>
-                                </div>
-                            </div>
+                            <p><i class="fa fa-user-o"></i>Admin</p>
+                            <p><i class="fa fa-eye"></i>45 Views</p>
+                            <p><i class="fa fa-comment-o"></i>5 Comments</p>
                         </div>
+                        <p>
+                            Celebrate Eco-Friendly Holi with colorful flowers 🌸🌼 instead of chemical colors. Using
+                            natural petals like rose, marigold, and hibiscus makes the festival safe for the skin and
+                            protects the environment. It spreads joy, fragrance, and positivity while promoting a clean
+                            and green celebration.
 
-                        <div class="col-md-6">
-                            <div class="blog-img">
-                                <img src="img/blog-2.jpg" />
-                            </div>
-                            <div class="blog-col">
-                                <h4>🧘‍♂️ Code & Calm | Yoga for the Tech Life</h4>
-                                <div class="blog-meta">
-                                    <p><i class="fa fa-clock-o"></i>Apr 1, 2019</p>
-                                    <p><i class="fa fa-user-o"></i>Admin</p>
-                                    <p><i class="fa fa-eye"></i>45 Views</p>
-                                    <p><i class="fa fa-comment-o"></i>5 Comments</p>
-                                </div>
-                                <p>
-                                    Welcome to Code & Calm—where tech meets tranquility. Designed for developers,
-                                    designers, and digital pros, this blog offers simple, effective yoga and mindfulness
-                                    practices to combat screen fatigue, boost focus, and balance the high-paced IT
-                                    lifestyle. Whether you’re taking a break between coding sprints or winding down
-                                    after a long day, find your flow and feel better—body, mind, and spirit.
-                                </p>
-                                <div class="view-more-btn text-center">
-                                    <a href="https://www.instagram.com/praveerpattanayak?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                                        id="view-more-link">
-                                        <button id="view-more" class="btn btn-primary">Read More</button>
-                                    </a>
-                                </div>
-                            </div>
+
+                        </p>
+                        <div class="view-more-btn text-center">
+                            <a href="https://www.instagram.com/praveerpattanayak?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                id="view-more-link">
+                                <button id="view-more" class="btn btn-primary">Read More</button>
+                            </a>
                         </div>
                     </div>
-                    <div class="view-more-btn text-center">
-                        <a href="blog.html" id="view-more-link">
-                            <button id="view-more" class="btn btn-primary">View More Blogs</button>
-                        </a>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="blog-img">
+                        <img src="img/holi 2.jpg" />
+                    </div>
+                    <div class="blog-col">
+                        <h4>Enjoy a joyful, natural, and eco-conscious Holi! 🌿✨</h4>
+                        <div class="blog-meta">
+
+                            <p><i class="fa fa-user-o"></i>Admin</p>
+                            <p><i class="fa fa-eye"></i>45 Views</p>
+                            <p><i class="fa fa-comment-o"></i>5 Comments</p>
+                        </div>
+                        <p>
+                            Celebrate a green and sustainable Holi 🌸🌼 by using fresh flower petals instead of chemical
+                            colors. Natural flowers like rose, marigold, and hibiscus add beauty, fragrance, and safety
+                            to the celebration while caring for the environment.
+                        </p>
+                        <div class="view-more-btn text-center">
+                            <a href="https://www.instagram.com/praveerpattanayak?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                id="view-more-link">
+                                <button id="view-more" class="btn btn-primary">Read More</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <!-- Blog Section End -->
+            <!-- Feedback Slider -->
+
+            <div class="container py-5">
+                <div class="section-header text-center mb-4">
+                    <h2>🗣️ What Our Students Say</h2>
+                </div>
+
+                <div id="feedbackCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel"
+                    data-bs-interval="2500" data-bs-pause="false">
+
+                    <div class="carousel-inner text-center">
+
+                        <div class="carousel-item active">
+                            <img src="feedback/1.png" class="d-block mx-auto img-fluid" alt="Feedback 1"
+                                style="max-height:400px;">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="feedback/2.png" class="d-block mx-auto img-fluid" alt="Feedback 2"
+                                style="max-height:400px;">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="feedback/3.png" class="d-block mx-auto img-fluid" alt="Feedback 3"
+                                style="max-height:400px;">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="feedback/4.png" class="d-block mx-auto img-fluid" alt="Feedback 4"
+                                style="max-height:400px;">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="feedback/5.png" class="d-block mx-auto img-fluid" alt="Feedback 5"
+                                style="max-height:400px;">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="feedback/6.png" class="d-block mx-auto img-fluid" alt="Feedback 6"
+                                style="max-height:400px;">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="feedback/7.png" class="d-block mx-auto img-fluid" alt="Feedback 7"
+                                style="max-height:400px;">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="feedback/8.png" class="d-block mx-auto img-fluid" alt="Feedback 8"
+                                style="max-height:400px;">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="feedback/9.png" class="d-block mx-auto img-fluid" alt="Feedback 9"
+                                style="max-height:400px;">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="feedback/10.png" class="d-block mx-auto img-fluid" alt="Feedback 10"
+                                style="max-height:400px;">
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <!-- Blog Section End -->
-                   <!-- Feedback Slider -->
-
-<div class="container py-5">
-  <div class="section-header text-center mb-4">
-    <h2>🗣️ What Our Students Say</h2>
-  </div>
-
-  <div id="feedbackCarousel"
-       class="carousel slide carousel-fade"
-       data-bs-ride="carousel"
-       data-bs-interval="2500"
-       data-bs-pause="false">
-
-    <div class="carousel-inner text-center">
-
-      <div class="carousel-item active">
-        <img src="feedback/1.png" class="d-block mx-auto img-fluid" alt="Feedback 1" style="max-height:400px;">
-      </div>
-
-      <div class="carousel-item">
-        <img src="feedback/2.png" class="d-block mx-auto img-fluid" alt="Feedback 2" style="max-height:400px;">
-      </div>
-
-      <div class="carousel-item">
-        <img src="feedback/3.png" class="d-block mx-auto img-fluid" alt="Feedback 3" style="max-height:400px;">
-      </div>
-
-      <div class="carousel-item">
-        <img src="feedback/4.png" class="d-block mx-auto img-fluid" alt="Feedback 4" style="max-height:400px;">
-      </div>
-
-      <div class="carousel-item">
-        <img src="feedback/5.png" class="d-block mx-auto img-fluid" alt="Feedback 5" style="max-height:400px;">
-      </div>
-
-      <div class="carousel-item">
-        <img src="feedback/6.png" class="d-block mx-auto img-fluid" alt="Feedback 6" style="max-height:400px;">
-      </div>
-
-      <div class="carousel-item">
-        <img src="feedback/7.png" class="d-block mx-auto img-fluid" alt="Feedback 7" style="max-height:400px;">
-      </div>
-
-      <div class="carousel-item">
-        <img src="feedback/8.png" class="d-block mx-auto img-fluid" alt="Feedback 8" style="max-height:400px;">
-      </div>
-
-      <div class="carousel-item">
-        <img src="feedback/9.png" class="d-block mx-auto img-fluid" alt="Feedback 9" style="max-height:400px;">
-      </div>
-
-      <div class="carousel-item">
-        <img src="feedback/10.png" class="d-block mx-auto img-fluid" alt="Feedback 10" style="max-height:400px;">
-      </div>
-
-    </div>
-  </div>
-</div>
 
             <!-- Contact Section Start -->
             <div id="contact">
@@ -1195,24 +1212,25 @@
                             </div>
                         </div>
                         <div class="col-12">
-                             <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sitemap.html">Site Map</a></li>
-            <li><a href="login.html">Admin Login</a></li>
-            <li><a href="Admission Form.html">Online Admission Form</a></li>
-            <li><a href="term and condition.html">Terms and Conditions</a></li>
-            <li><a href="privaypolicy.html">Privacy Policy</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="sitemap.html">Site Map</a></li>
+                                <li><a href="login.html">Admin Login</a></li>
+                                <li><a href="Admission Form.html">Online Admission Form</a></li>
+                                <li><a href="term and condition.html">Terms and Conditions</a></li>
+                                <li><a href="privaypolicy.html">Privacy Policy</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
                         </div>
 
                         <div class="col-12">
-              <p>&copy; Copyright 2026 <a href="index.html">Ananta Yoga(Yoga For Life)</a>. All rights reserved| Last update on 15/01/2026 | TIME=06.15pm</p>
-              <p>Designed and Maintained by <a
-                  href="https://suzen-kumar-mohanty-8fdv.vercel.app/">Er-Suzen
-                  kumar Mohanty
-                </a></p>
-            </div>
+                            <p>&copy; Copyright 2026 <a href="index.html">Ananta Yoga(Yoga For Life)</a>. All rights
+                                reserved| Last update on 08/03/2026 | TIME=09.15pm</p>
+                            <p>Designed and Maintained by <a
+                                    href="https://suzen-kumar-mohanty-8fdv.vercel.app/">Er-Suzen
+                                    kumar Mohanty
+                                </a></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1240,11 +1258,11 @@
                 });
             };
 
-          
+
 
         </script>
         <script>
-              let slides = document.querySelectorAll(".slide");
+            let slides = document.querySelectorAll(".slide");
             let currentSlide = 0;
 
             function changeSlide() {
