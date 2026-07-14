@@ -2,572 +2,456 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Classes</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Join Ananta Yoga – Your path to holistic wellness. Experience expert-led online and offline yoga classes to boost flexibility, relieve stress, and enhance well-being. Book your free demo today!">
-    <meta name="keywords"
-        content="Ananta Yoga, Online Yoga Classes, Offline Yoga Studio, Yoga Near Me, Meditation, Wellness Programs, Holistic Health, Flexibility, Stress Relief, Yoga for Beginners, Advanced Yoga, Yoga for Life">
-    <meta name="author" content="Ananta Yoga Official">
+<meta charset="utf-8">
+<title>Our Classes | Ananta Yoga (Yoga For Life)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Favicons -->
-    <link href="logo/logo.jpg" rel="icon">
-    <link href="logo/logo.jpg" rel="apple-touch-icon">
+<!-- SEO Meta Tags -->
+<meta name="description" content="Join Ananta Yoga – Your path to holistic wellness. Experience expert-led online and offline yoga classes to boost flexibility, relieve stress, and enhance well-being. Book your free demo today!">
+<meta name="keywords" content="Ananta Yoga, Online Yoga Classes, Offline Yoga Studio, Yoga Near Me, Meditation, Wellness Programs, Holistic Health, Flexibility, Stress Relief, Yoga for Beginners, Advanced Yoga, Yoga for Life">
+<meta name="author" content="Ananta Yoga Official">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900|Pacifico"
-        rel="stylesheet">
+<!-- Favicons -->
+<link href="logo/logo.jpg" rel="icon">
+<link href="logo/logo.jpg" rel="apple-touch-icon">
 
-    <!-- Vendor CSS File -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="vendor/animate/animate.min.css" rel="stylesheet">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Main Stylesheet File -->
-    <link href="css/style.css" rel="stylesheet">
-    <style>
-        .slideshow-container {
-            max-width: 100%;
-            position: relative;
-            margin: auto;
-            overflow: hidden;
-        }
+<style>
+  /* ============ TOKENS (shared across the site) ============ */
+  :root{
+    --forest: #16302A;
+    --forest-deep: #0D211B;
+    --marigold: #E3A53E;
+    --marigold-deep: #C4841E;
+    --clay: #AA4A2E;
+    --ivory: #F4F0E3;
+    --paper: #FBF9F2;
+    --ink: #1B241E;
+    --ink-soft: #4B564E;
+    --line: rgba(27,36,30,0.12);
+    --line-light: rgba(244,240,227,0.18);
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Manrope', sans-serif;
+    --container: 1180px;
+  }
 
-        .slides {
-            display: none;
-            width: 100%;
-            height: auto;
-        }
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+  }
 
-        img {
-            width: 400px;
-            height: auto;
-        }
+  body{ margin:0; font-family: var(--font-body); color: var(--ink); background: var(--paper); line-height:1.6; -webkit-font-smoothing:antialiased; }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; margin:0; padding:0; }
+  .container{ max-width: var(--container); margin:0 auto; padding: 0 24px; }
+  h1,h2,h3,h4{ font-family: var(--font-display); margin:0; font-weight:600; letter-spacing:-0.01em; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family: var(--font-body); font-weight:700; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color: var(--marigold-deep); }
+  .eyebrow::before{ content:""; width:20px; height:1px; background: var(--marigold-deep); display:inline-block; }
+  section{ padding: 96px 0; }
+  @media (max-width:768px){ section{ padding:64px 0; } }
+  .btn{ display:inline-flex; align-items:center; gap:10px; padding:14px 30px; border-radius:100px; font-weight:700; font-size:0.95rem; border:1px solid transparent; cursor:pointer; transition: all .25s ease; }
+  .btn-marigold{ background: var(--marigold); color: var(--forest-deep); }
+  .btn-marigold:hover{ background: var(--marigold-deep); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(196,132,30,0.35); }
+  .btn-outline-dark{ background:transparent; border-color: var(--line); color: var(--ink); }
+  .btn-outline-dark:hover{ background: var(--ink); color: var(--paper); }
 
-        .fade {
-            animation-name: fade;
-            animation-duration: 2s;
-        }
+  /* ============ NAV ============ */
+  header.site-nav{ position:fixed; top:0; left:0; right:0; z-index:500; padding:20px 0; background: var(--forest-deep); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .brand{ display:flex; align-items:center; gap:12px; font-family: var(--font-display); color: var(--ivory); font-size:1.3rem; font-weight:600; }
+  .brand img{ width:42px; height:42px; border-radius:50%; object-fit:cover; border:2px solid var(--marigold); }
+  .brand span em{ font-style:italic; color: var(--marigold); }
+  nav.main-links{ display:flex; align-items:center; gap:30px; }
+  nav.main-links a{ color: var(--ivory); font-size:0.92rem; font-weight:600; opacity:0.85; position:relative; padding:4px 0; }
+  nav.main-links a.current{ opacity:1; color: var(--marigold); }
+  nav.main-links a::after{ content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; background: var(--marigold); transform:scaleX(0); transform-origin:left; transition: transform .3s ease; }
+  nav.main-links a:hover{ opacity:1; }
+  nav.main-links a:hover::after{ transform: scaleX(1); }
+  .nav-toggle{ display:none; background:none; border:none; color: var(--ivory); font-size:1.4rem; cursor:pointer; }
+  @media (max-width: 980px){
+    nav.main-links{ position:fixed; inset:0 0 0 auto; width:min(320px,84vw); height:100vh; background: var(--forest-deep); flex-direction:column; align-items:flex-start; padding:100px 32px 32px; gap:22px; transform:translateX(100%); transition: transform .4s ease; box-shadow:-10px 0 40px rgba(0,0,0,0.3); }
+    nav.main-links.open{ transform: translateX(0); }
+    .nav-toggle{ display:block; }
+    .nav-cta .btn-marigold{ display:none; }
+  }
 
-        @keyframes fade {
-            from {
-                opacity: 0.4;
-            }
+  /* ============ PAGE BANNER ============ */
+  .page-banner{ position:relative; background: var(--forest-deep); color: var(--ivory); padding: 190px 0 90px; overflow:hidden; }
+  .page-banner::before{ content:""; position:absolute; inset:0; opacity:0.5; background-image: radial-gradient(circle at 15% 20%, rgba(227,165,62,0.1), transparent 40%), radial-gradient(circle at 85% 90%, rgba(227,165,62,0.07), transparent 45%); }
+  .page-banner .inner{ position:relative; z-index:1; }
+  .page-banner h1{ font-size: clamp(2rem,5vw,3.2rem); margin: 14px 0 12px; }
+  .breadcrumb{ font-size:0.9rem; color: rgba(244,240,227,0.65); }
+  .breadcrumb a{ color: var(--marigold); }
 
-            to {
-                opacity: 1;
-            }
-        }
+  /* ============ GALLERY SLIDESHOW ============ */
+  #gallery{ background: var(--forest); padding: 70px 0 90px; }
+  .gallery-head{ text-align:center; margin-bottom: 34px; color: var(--ivory); }
+  .gallery-head p{ color: rgba(244,240,227,0.72); margin: 12px 0 0; }
+  .gallery-frame{
+    max-width: 640px; margin: 0 auto; position:relative;
+    background: var(--forest-deep); border: 1px solid var(--line-light); padding:14px;
+  }
+  .gallery-viewport{ position:relative; aspect-ratio: 4/3; overflow:hidden; background: var(--forest-deep); }
+  .gallery-viewport img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:contain;
+    opacity:0; transition: opacity 0.9s ease;
+  }
+  .gallery-viewport img.active{ opacity:1; }
+  .gallery-controls{ display:flex; align-items:center; justify-content:space-between; margin-top:14px; }
+  .gallery-controls .nav-btns{ display:flex; gap:10px; }
+  .gallery-controls button{
+    width:38px; height:38px; border-radius:50%; border:1px solid var(--line-light); background:transparent;
+    color: var(--ivory); cursor:pointer; transition: all .25s ease; font-size:0.9rem;
+  }
+  .gallery-controls button:hover{ background: var(--marigold); color: var(--forest-deep); border-color: var(--marigold); }
+  .gallery-counter{ color: rgba(244,240,227,0.6); font-size:0.82rem; letter-spacing:0.06em; }
 
-        .view-more-btn {
-            margin-top: 30px;
-        }
+  /* ============ CLASSES ============ */
+  #classes{ background: var(--paper); }
+  .section-head{ max-width: 680px; margin: 0 auto 56px; text-align:center; }
+  .section-head p{ color: var(--ink-soft); margin: 14px 0 0; }
 
-        #view-more-link {
-            text-decoration: none;
-            /* Remove the underline from the link */
-        }
+  .class-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap:26px; }
+  @media (max-width: 860px){ .class-grid{ grid-template-columns:1fr; } }
+  .class-card{ background: var(--ivory); border:1px solid var(--line); display:grid; grid-template-columns: 42% 1fr; }
+  @media (max-width:560px){ .class-card{ grid-template-columns:1fr; } }
+  .class-card .img{ aspect-ratio: 1/1; overflow:hidden; background: var(--forest-deep); display:flex; align-items:center; justify-content:center; }
+  .class-card .img img{ width:100%; height:100%; object-fit:contain; transition: transform .5s ease; }
+  .class-card:hover .img img{ transform: scale(1.06); }
+  .class-card .body{ padding:24px 26px; display:flex; flex-direction:column; }
+  .class-card .num{ font-family: var(--font-display); font-size:0.8rem; color: var(--marigold-deep); margin-bottom:4px; }
+  .class-card h4{ font-size:1.15rem; margin-bottom:10px; }
+  .class-card p{ font-size:0.86rem; color: var(--ink-soft); flex:1; margin:0 0 16px; }
+  .class-card a{ font-weight:700; font-size:0.85rem; color: var(--clay); }
 
-        #view-more {
-            background-color: #00bcd4;
-            /* Start with a nice color */
-            color: white;
-            font-size: 16px;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            outline: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            animation: colorChange 3s infinite linear;
-            /* Continuous color change animation */
-        }
+  /* ============ FOOTER ============ */
+  footer{ background: var(--forest-deep); color: rgba(244,240,227,0.7); padding:56px 0 28px; }
+  .footer-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:32px; flex-wrap:wrap; padding-bottom:36px; border-bottom:1px solid var(--line-light); }
+  .footer-brand{ max-width:340px; }
+  .footer-brand .brand{ margin-bottom:14px; }
+  .footer-brand p{ font-size:0.88rem; }
+  .footer-social{ display:flex; gap:12px; margin-top:16px; }
+  .footer-social a{ width:38px; height:38px; border-radius:50%; border:1px solid var(--line-light); display:flex; align-items:center; justify-content:center; transition: all .25s ease; }
+  .footer-social a:hover{ background: var(--marigold); color: var(--forest-deep); border-color: var(--marigold); }
+  .footer-links{ display:flex; gap:64px; flex-wrap:wrap; }
+  .footer-links h5{ font-family: var(--font-body); color: var(--ivory); font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px; }
+  .footer-links ul{ display:grid; gap:10px; }
+  .footer-links a{ font-size:0.88rem; }
+  .footer-links a:hover{ color: var(--marigold); }
+  .footer-bottom{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; padding-top:24px; font-size:0.8rem; }
+  .footer-bottom a{ color: var(--marigold); }
 
-        #view-more:hover {
-            background-color: #ff4081;
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
+  .back-to-top{
+    position:fixed; right:26px; bottom:26px; z-index:400; width:46px; height:46px;
+    background: var(--forest); color: var(--ivory); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none;
+    transform: translateY(10px); transition: all .3s ease; box-shadow: 0 10px 26px rgba(0,0,0,0.25);
+  }
+  .back-to-top.show{ opacity:1; pointer-events:auto; transform:translateY(0); }
+  .back-to-top:hover{ background: var(--marigold-deep); }
 
-        #view-more:active {
-            background-color: #f50057;
-            transform: scale(0.98);
-        }
-
-        @keyframes colorChange {
-            0% {
-                background-color: #00d451;
-            }
-
-            25% {
-                background-color: black;
-            }
-
-            50% {
-                background-color: #06eb93;
-            }
-
-            75% {
-                background-color: #edff4d;
-            }
-
-            100% {
-                background-color: #1d1919;
-            }
-        }
-    </style>
+  .reveal{ opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+</style>
 </head>
 
 <body>
-    <!-- Header Section Start -->
-    <div class="menu"> <span></span> </div>
-    <nav id="nav">
-        <ul class="main">
-            <ul class="main">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="teacher.html">Professional Yoga Teachers</a></li>
-                <li><a href="Admission Form.html">Online Admission Form</a></li>
-                <li><a href="class.html">Classes</a></li>
-                <li><a href="blog.html">Latest Blog</a></li>
-                <li><a href="login.html">Admin Login</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+
+  <!-- ============ NAV ============ -->
+  <header class="site-nav" id="siteNav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="logo/logo.jpg" alt="Ananta Yoga logo">
+        <span>Ananta <em>Yoga</em></span>
+      </a>
+
+      <nav class="main-links" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="teacher.html">Teachers</a>
+        <a href="class.html" class="current">Classes</a>
+        <a href="blog.html">Blog</a>
+        <a href="Admission%20Form.html">Admission</a>
+        <a href="login.html">Admin Login</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="Admission%20Form.html" class="btn btn-marigold">Book Free Demo</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE BANNER ============ -->
+  <div class="page-banner">
+    <div class="container inner">
+      <span class="eyebrow">Our Classes</span>
+      <h1>Yoga For Every Body, Every Level</h1>
+      <p class="breadcrumb"><a href="index.html">Home</a> / Classes</p>
+    </div>
+  </div>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="gallery">
+    <div class="container">
+      <div class="gallery-head reveal">
+        <span class="eyebrow">From the Studio</span>
+        <h2 style="color:var(--ivory); font-size: clamp(1.6rem,3vw,2.1rem); margin-top:14px;">Moments at Ananta Yoga</h2>
+        <p>A look inside our sessions, workshops and community events.</p>
+      </div>
+
+      <div class="gallery-frame reveal">
+        <div class="gallery-viewport" id="galleryViewport"></div>
+        <div class="gallery-controls">
+          <span class="gallery-counter" id="galleryCounter">1 / 1</span>
+          <div class="nav-btns">
+            <button id="galleryPrev" aria-label="Previous photo"><i class="fa fa-chevron-left"></i></button>
+            <button id="galleryNext" aria-label="Next photo"><i class="fa fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLASSES ============ -->
+  <section id="classes">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Classes</span>
+        <h2 style="font-size: clamp(1.9rem,3.4vw,2.6rem); margin-top:14px;">A range of practice, rooted in tradition</h2>
+        <p>At Ananta Yoga (Yoga For Life), we offer classes designed for every level — from beginners to advanced practitioners — to promote physical wellness, mental clarity and emotional balance.</p>
+      </div>
+
+      <div class="class-grid">
+        <div class="class-card reveal">
+          <div class="img"><img src="img/traditional yoga.jpg" alt="Traditional yoga"></div>
+          <div class="body">
+            <span class="num">01</span>
+            <h4>Traditional Yoga</h4>
+            <p>A holistic, 360° approach to health and wellness — physical, mental, emotional and spiritual — creating harmony among mind, body and soul.</p>
+            <a href="Admission%20Form.html">Join Now →</a>
+          </div>
+        </div>
+
+        <div class="class-card reveal">
+          <div class="img"><img src="img/hatha yoga.jpg" alt="Hatha yoga"></div>
+          <div class="body">
+            <span class="num">02</span>
+            <h4>Hatha Yoga</h4>
+            <p>Focused on physical postures (asanas) and breath control (pranayama) to balance body, mind and spirit — slow, deliberate movement building flexibility and calm.</p>
+            <a href="Admission%20Form.html">Join Now →</a>
+          </div>
+        </div>
+
+        <div class="class-card reveal">
+          <div class="img"><img src="img/RUBBER NETI (KRIYA).jpg" alt="Rubber Neti Kriya"></div>
+          <div class="body">
+            <span class="num">03</span>
+            <h4>Rubber Neti (Kriya)</h4>
+            <p>Also known as Sutra Neti — a yogic cleansing practice using a rubber tube to clear the nasal tract, remove blockages and mucus, and improve nasal hygiene.</p>
+            <a href="Admission%20Form.html">Join Now →</a>
+          </div>
+        </div>
+
+        <div class="class-card reveal">
+          <div class="img"><img src="img/pranayam.jpg" alt="Pranayam"></div>
+          <div class="body">
+            <span class="num">04</span>
+            <h4>Pranayam</h4>
+            <p>A breathing practice that regulates the flow of prana, or life force, through controlled inhalation, exhalation and breath retention — connecting body and mind.</p>
+            <a href="Admission%20Form.html">Join Now →</a>
+          </div>
+        </div>
+
+        <div class="class-card reveal">
+          <div class="img"><img src="img/power yoga.jpeg" alt="Power Yoga"></div>
+          <div class="body">
+            <span class="num">05</span>
+            <h4>Power Yoga</h4>
+            <p>A physically intense style of Vinyasa yoga building strength, flexibility and endurance through flowing sequences and synchronized breathing.</p>
+            <a href="Admission%20Form.html">Join Now →</a>
+          </div>
+        </div>
+
+        <div class="class-card reveal">
+          <div class="img"><img src="img/Surya Namaskar.jpg" alt="Surya Namaskar"></div>
+          <div class="body">
+            <span class="num">06</span>
+            <h4>Surya Namaskar</h4>
+            <p>Sun Salutation — a sequence of 12 linked asanas traditionally performed to greet the sun, deeply rooted in Indian culture as a gesture of gratitude for its life-sustaining energy.</p>
+            <a href="Admission%20Form.html">Join Now →</a>
+          </div>
+        </div>
+
+        <div class="class-card reveal">
+          <div class="img"><img src="img/Meditation.jpg" alt="Meditation"></div>
+          <div class="body">
+            <span class="num">07</span>
+            <h4>Meditation</h4>
+            <p>Focusing or clearing the mind to reach calm and clarity, using breath, mantra or visualization — reducing stress and anxiety while improving focus.</p>
+            <a href="Admission%20Form.html">Join Now →</a>
+          </div>
+        </div>
+
+        <div class="class-card reveal">
+          <div class="img"><img src="img/kidyoga.png" alt="Kid's Yoga"></div>
+          <div class="body">
+            <span class="num">08</span>
+            <h4>Kid's Yoga</h4>
+            <p>A playful introduction to yoga for children — storytelling, games, music and imagination build strength, balance, coordination and confidence. No experience needed.</p>
+            <a href="Admission%20Form.html">Join Now →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand"><img src="logo/logo.jpg" alt="Ananta Yoga logo"><span>Ananta <em>Yoga</em></span></a>
+          <p>Yoga For Life — holistic wellness through asana, pranayama and meditation, in Balasore, Odisha.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/praveerpattanayak?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1ZQw247WaA/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h5>Explore</h5>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="class.html">Classes</a></li>
+              <li><a href="teacher.html">Teachers</a></li>
+              <li><a href="blog.html">Latest Blog</a></li>
             </ul>
-    </nav>
-    <div class="overlay"></div>
-
-    <div class="header banner">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1><a class="brand" href="index.html">Welcome to Ananta Yoga</a></h1>
-                    <!-- <a class="brand" href="index.html"><img alt="Logo" src="img/logo.jpg"></a> -->
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <h1>Home / Classes</h1>
-            </div>
+          </div>
+          <div>
+            <h5>Account</h5>
+            <ul>
+              <li><a href="Admission%20Form.html">Online Admission</a></li>
+              <li><a href="login.html">Admin Login</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="sitemap.html">Site Map</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="term%20and%20condition.html">Terms &amp; Conditions</a></li>
+              <li><a href="privaypolicy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
         </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; Copyright 2026 <a href="index.html">Ananta Yoga (Yoga For Life)</a>. All rights reserved.</p>
+        <p>Designed and maintained by <a href="https://suzen-kumar-mohanty-8fdv.vercel.app/" target="_blank" rel="noopener">Er. Suzen Kumar Mohanty</a></p>
+      </div>
     </div>
-    <!-- Header Section End -->
-    <center>
-        <div class="slideshow-container">
-            <div class="slides fade">
-                <img src="img/home1.jpg" alt="center image1">
-            </div>
-            <div class="slides fade">
-                <img src="img/home.jpg" alt="center image2">
-            </div>
-            <div class="slides fade">
-                <img src="img/kid yoga 1.jpeg" alt="Image 13">
-            </div>
+  </footer>
 
-            <div class="slides fade">
-                <img src="img/kid yoga 2.jpeg" alt="Image 14">
-            </div>
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa fa-chevron-up"></i></a>
 
-            <div class="slides fade">
-                <img src="img/kid yoga 3.jpeg" alt="Image 15">
-            </div>
+  <script>
+    // ---------- Nav ----------
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    const backToTop = document.getElementById('backToTop');
 
-            <div class="slides fade">
-                <img src="img/kid yoga 4.jpeg" alt="Image 16">
-            </div>
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('show', window.scrollY > 500);
+    }, { passive: true });
 
-            <div class="slides fade">
-                <img src="img/kid yoga 5.jpeg" alt="Image 12">
-            </div>
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.innerHTML = isOpen ? '<i class="fa fa-times"></i>' : '<i class="fa fa-bars"></i>';
+    });
+    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      navToggle.innerHTML = '<i class="fa fa-bars"></i>';
+    }));
 
-            <div class="slides fade">
-                <img src="img/kid yoga 6.jpeg" alt="Image 13">
-            </div>
+    // ---------- Reveal on scroll ----------
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => io.observe(el));
 
-            <div class="slides fade">
-                <img src="img/kid yoga 7.jpeg" alt="Image 14">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-21.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-22.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-23.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-24.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-25.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-26.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-27.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-28(shidhivinayak).jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-29.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-30.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-31.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-32.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-33.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-34.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-35.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-36.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-1.jpg" alt="Image 1">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-2.jpg" alt="Image 2">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-3.jpg" alt="Image 3">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-4.jpg" alt="Image 4">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-5.jpg" alt="Image 5">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-6.jpg" alt="Image 6">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-7.jpg" alt="Image 7">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-8.jpg" alt="Image 8">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-9.jpg" alt="Image 9">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-10.jpg" alt="Image 10">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-11.jpg" alt="Image 11">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-12.jpg" alt="Image 12">
-            </div>
-            <div class="slides fade">
-                <img src="img/blog-13.jpg" alt="Image 13">
-            </div>
-            <div class="slides fade">
-                <img src="img/1.jpg" alt="Image 7">
-            </div>
-            <div class="slides fade">
-                <img src="img/2.jpg" alt="Image 8">
-            </div>
-            <div class="slides fade">
-                <img src="img/3.jpg" alt="Image 9">
-            </div>
-            <div class="slides fade">
-                <img src="img/YOGA 1.jpeg" alt="Image 10">
-            </div>
-            <div class="slides fade">
-                <img src="img/YOGA 2.jpeg" alt="Image 11">
-            </div>
-            <div class="slides fade">
-                <img src="img/YOGA 3.jpeg" alt="Image 12">
-            </div>
+    // ---------- Gallery slideshow ----------
+    (function gallery(){
+      const images = [
+        'img/home1.jpg', 'img/home.jpg',
+        'img/kid yoga 1.jpeg', 'img/kid yoga 2.jpeg', 'img/kid yoga 3.jpeg', 'img/kid yoga 4.jpeg',
+        'img/kid yoga 5.jpeg', 'img/kid yoga 6.jpeg', 'img/kid yoga 7.jpeg',
+        'img/blog-21.jpg', 'img/blog-22.jpg', 'img/blog-23.jpg', 'img/blog-24.jpg', 'img/blog-25.jpg',
+        'img/blog-26.jpg', 'img/blog-27.jpg', 'img/blog-28(shidhivinayak).jpg', 'img/blog-29.jpg', 'img/blog-30.jpg',
+        'img/blog-31.jpg', 'img/blog-32.jpg', 'img/blog-33.jpg', 'img/blog-34.jpg', 'img/blog-35.jpg', 'img/blog-36.jpg',
+        'img/blog-1.jpg', 'img/blog-2.jpg', 'img/blog-3.jpg', 'img/blog-4.jpg', 'img/blog-5.jpg',
+        'img/blog-6.jpg', 'img/blog-7.jpg', 'img/blog-8.jpg', 'img/blog-9.jpg', 'img/blog-10.jpg',
+        'img/blog-11.jpg', 'img/blog-12.jpg', 'img/blog-13.jpg',
+        'img/1.jpg', 'img/2.jpg', 'img/3.jpg',
+        'img/YOGA 1.jpeg', 'img/YOGA 2.jpeg', 'img/YOGA 3.jpeg'
+      ];
 
+      const viewport = document.getElementById('galleryViewport');
+      const counter = document.getElementById('galleryCounter');
+      const prevBtn = document.getElementById('galleryPrev');
+      const nextBtn = document.getElementById('galleryNext');
+      let current = 0, timer;
 
-        </div>
-    </center>
-    <!-- Classes Section Start -->
-    <div id="classes">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Classes</h2>
-                <p>
-                    At Ananta Yoga (Yoga For Life), we offer a range of yoga classes designed to cater to individuals of
-                    all levels — from beginners to advanced practitioners. Our classes are rooted in the belief that
-                    yoga is for everyone and aim to promote physical wellness, mental clarity, and emotional balance.
-                    Whether you're looking to enhance flexibility, improve strength, or find inner peace, we have a
-                    class that suits your needs.
-                </p>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 single-class">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="class-img">
-                                <img src="img/traditional yoga.jpg">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="class-des">
-                                <h4>Traditional yoga</h4>
-                                <p>Traditional yoga practice takes a holistic, 360-degree approach to health and
-                                    wellness, focusing on physical, mental, emotional, and spiritual aspects. It
-                                    emphasizes the union of mind, body, and soul, creating harmony among all three.</p>
-                                <a class="btn" href="Admission Form.html">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      images.forEach((src, i) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Ananta Yoga gallery photo ' + (i + 1);
+        img.loading = 'lazy';
+        if (i === 0) img.classList.add('active');
+        viewport.appendChild(img);
+      });
+      const slides = Array.from(viewport.children);
 
-                <div class="col-lg-6 single-class">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="class-img">
-                                <img src="img/hatha yoga.jpg">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="class-des">
-                                <h4>Hatha yoga</h4>
-                                <p>Hatha yoga is a school of yoga that focuses on physical postures (asanas) and breath
-                                    control (pranayama) to balance the body, mind, and spirit, and is often considered
-                                    an umbrella term for many common yoga styles practiced in the West. It involves
-                                    slow, deliberate movements, holding poses, and mindfulness, aiming to improve
-                                    flexibility, strength, balance, and relaxation. </p>
-                                <a class="btn" href="Admission Form.html">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      function render(){
+        slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
+        counter.textContent = (current + 1) + ' / ' + slides.length;
+      }
+      function next(){ current = (current + 1) % slides.length; render(); }
+      function prev(){ current = (current - 1 + slides.length) % slides.length; render(); }
+      function resetTimer(){ clearInterval(timer); timer = setInterval(next, 3200); }
 
-                <div class="col-lg-6 single-class">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="class-img">
-                                <img src="img/RUBBER NETI (KRIYA).jpg">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="class-des">
-                                <h4> Rubber Neti (Kriya)</h4>
-                                <p>Rubber Neti, also known as Sutra Neti, is a yogic practice involving inserting a
-                                    rubber tube or cord into the nasal passages to cleanse the nasal tract. It is used
-                                    to clear blockages, remove mucus, and improve nasal hygiene. </p>
-                                <a class="btn" href="Admission Form.html">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      nextBtn.addEventListener('click', () => { next(); resetTimer(); });
+      prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
 
-                <div class="col-lg-6 single-class">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="class-img">
-                                <img src="img/pranayam.jpg">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="class-des">
-                                <h4>Pranayam</h4>
-                                <p>Pranayama is a yogic practice focused on regulating breath to influence the flow of
-                                    prana, or life force, within the body. It involves controlled inhalation,
-                                    exhalation, and breath retention, aiming to connect the body and mind and promote
-                                    overall well-being.</p>
-                                <a class="btn" href="Admission Form.html">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      render();
+      resetTimer();
+    })();
+  </script>
 
-                <div class="col-lg-6 single-class">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="class-img">
-                                <img src="img/power yoga.jpeg">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="class-des">
-                                <h4>Power Yoga</h4>
-                                <p>Power Yoga is a physically intense style of Vinyasa yoga, emphasizing strength,
-                                    flexibility, and endurance through flowing sequences and synchronized breathing. It
-                                    builds upon the Ashtanga yoga system but offers more creative and diverse sequences.
-                                </p>
-                                <a class="btn" href="Admission Form.html">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8L0MSB3QK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-B8L0MSB3QK');
+  </script>
 
-                <div class="col-lg-6 single-class">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="class-img">
-                                <img src="img/Surya Namaskar.jpg">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="class-des">
-                                <h4>Surya Namaskar</h4>
-                                <p>Surya Namaskar, also known as Sun Salutation, is a sequence of yoga poses that
-                                    originated in India and is widely practiced as a form of exercise and spiritual
-                                    practice. It consists of a series of 12 linked asanas, which are traditionally
-                                    performed to greet the sun and express gratitude for its life-sustaining energy. The
-                                    practice is deeply rooted in Indian culture and Hinduism, where the sun is revered
-                                    as a deity and the source of all life</p>
-                                <a class="btn" href="Admission Form.html">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 single-class">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="class-img">
-                                <img src="img/Meditation.jpg">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="class-des">
-                                <h4>Meditation</h4>
-                                <p>Meditation is a practice that involves focusing or clearing the mind to achieve a
-                                    state of calm, clarity, and well-being. It can be done using various techniques,
-                                    including focusing on the breath, a mantra, or a visualization. Regular meditation
-                                    can bring numerous benefits, such as reduced stress and anxiety, improved focus, and
-                                    enhanced emotional regulation. </p>
-                                <a class="btn" href="Admission Form.html">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-6 single-class">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="class-img">
-                                <img src="img/kidyoga.png">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="class-des">
-                                <h4>Kid's Yoga </h4>
-                                <p>A fun and playful introduction to yoga designed especially for children! Through
-                                    storytelling, games, music, and imagination, kids will explore basic yoga poses,
-                                    breathing exercises, and mindfulness techniques. This class helps build strength,
-                                    balance, coordination, and focus—while encouraging creativity and self-confidence.
-                                    No experience needed—just bring your energy and a smile!</p>
-                                <a class="btn" href="Admission Form.html">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
-    </div>
-    <!-- Classes Section End -->
-    <!-- Footer Section Start -->
-    <div id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="social">
-                        <a
-                            href="https://www.instagram.com/praveerpattanayak?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-                            <li class="fa fa-instagram"></li>
-                        </a>
-
-                        <a href="https://www.facebook.com/share/1ZQw247WaA/">
-                            <li class="fa fa-facebook-f"></li>
-                        </a>
-
-                    </div>
-                </div>
-                <div class="col-12">
-               <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sitemap.html">Site Map</a></li>
-            <li><a href="login.html">Admin Login</a></li>
-            <li><a href="Admission Form.html">Online Admission Form</a></li>
-            <li><a href="term and condition.html">Terms and Conditions</a></li>
-            <li><a href="privaypolicy.html">Privacy Policy</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-                 
-                </div>
-
-                               <div class="col-12">
-              <p>&copy; Copyright 2026 <a href="index.html">Ananta Yoga(Yoga For Life)</a>. All rights reserved| Last update on 08/03/2026 | TIME=09.15pm</p>
-              <p>Designed and Maintained by <a
-                  href="https://suzen-kumar-mohanty-8fdv.vercel.app/">Er-Suzen
-                  kumar Mohanty
-                </a></p>
-            </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <!-- Footer Section End -->
-
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-    <!-- Vendor JavaScript File -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/jquery/jquery-migrate.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/easing/easing.min.js"></script>
-    <script src="vendor/wow/wow.min.js"></script>
-
-    <!-- Main Javascript File -->
-    <script src="js/main.js"></script>
-    <script>
-        // script.js
-        let slideIndex = 0;
-
-        function showSlides() {
-            let slides = document.querySelectorAll('.slides');
-
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = 'none';
-            }
-
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1;
-            }
-
-            slides[slideIndex - 1].style.display = 'block';
-            setTimeout(showSlides, 3000); // Change image every 3 seconds
-        }
-
-        showSlides();
-
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8L0MSB3QK"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-B8L0MSB3QK');
-    </script>
 </body>
-
 </html>

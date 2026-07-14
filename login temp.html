@@ -1,299 +1,333 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <title>Admin Login  For Workshop Database </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<title>Admin Login for Workshop Database | Ananta Yoga</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Secure admin login page for Ananta Yoga. Authorized personnel only.">
-    <meta name="keywords" content="Admin Login, Yoga Admin Panel, Ananta Yoga Admin">
-    <meta name="author" content="Ananta Yoga Team">
+<!-- SEO Meta Tags -->
+<meta name="description" content="Secure admin login page for Ananta Yoga. Authorized personnel only.">
+<meta name="keywords" content="Admin Login, Yoga Admin Panel, Ananta Yoga Admin">
+<meta name="author" content="Ananta Yoga Team">
 
-    <!-- Prevent Search Engine Indexing -->
-    <meta name="robots" content="noindex, nofollow">
+<!-- Prevent Search Engine Indexing -->
+<meta name="robots" content="noindex, nofollow">
 
-    <!-- Canonical URL
-    <link rel="canonical" href="https://www.yourdomain.com/admin-login"> -->
+<!-- Favicons -->
+<link href="logo/logo.jpg" rel="icon">
+<link href="logo/logo.jpg" rel="apple-touch-icon">
 
-    <!-- Favicons -->
-    <link href="logo/logo.jpg" rel="icon">
-    <link href="logo/logo.jpg" rel="apple-touch-icon">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS (shared across the site) ============ */
+  :root{
+    --forest: #16302A;
+    --forest-deep: #0D211B;
+    --marigold: #E3A53E;
+    --marigold-deep: #C4841E;
+    --clay: #AA4A2E;
+    --ivory: #F4F0E3;
+    --paper: #FBF9F2;
+    --ink: #1B241E;
+    --ink-soft: #4B564E;
+    --line: rgba(27,36,30,0.12);
+    --line-light: rgba(244,240,227,0.18);
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Manrope', sans-serif;
+    --container: 1180px;
+  }
 
-    <!-- Vendor CSS Files -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="vendor/animate/animate.min.css" rel="stylesheet">
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+  }
 
-    <!-- Main Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    <!-- Custom CSS for styling the form -->
-    <style>
-        /* General Body Font */
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
+  body{ margin:0; font-family: var(--font-body); color: var(--ink); background: var(--paper); line-height:1.6; -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; margin:0; padding:0; }
+  .container{ max-width: var(--container); margin:0 auto; padding: 0 24px; }
+  h1,h2{ font-family: var(--font-display); margin:0; font-weight:600; letter-spacing:-0.01em; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family: var(--font-body); font-weight:700; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color: var(--marigold-deep); }
+  .eyebrow::before{ content:""; width:20px; height:1px; background: var(--marigold-deep); display:inline-block; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 30px; border-radius:100px; font-weight:700; font-size:0.95rem; border:1px solid transparent; cursor:pointer; transition: all .25s ease; }
+  .btn-marigold{ background: var(--marigold); color: var(--forest-deep); }
+  .btn-marigold:hover{ background: var(--marigold-deep); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(196,132,30,0.35); }
+  .btn-outline-dark{ background:transparent; border-color: var(--line); color: var(--ink); }
+  .btn-outline-dark:hover{ background: var(--ink); color: var(--paper); }
 
-        /* Centering the login form */
-        #login {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f9;
-        }
+  /* ============ NAV ============ */
+  header.site-nav{ position:fixed; top:0; left:0; right:0; z-index:500; padding:20px 0; background: var(--forest-deep); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .brand{ display:flex; align-items:center; gap:12px; font-family: var(--font-display); color: var(--ivory); font-size:1.3rem; font-weight:600; }
+  .brand img{ width:42px; height:42px; border-radius:50%; object-fit:cover; border:2px solid var(--marigold); }
+  .brand span em{ font-style:italic; color: var(--marigold); }
+  nav.main-links{ display:flex; align-items:center; gap:30px; }
+  nav.main-links a{ color: var(--ivory); font-size:0.92rem; font-weight:600; opacity:0.85; position:relative; padding:4px 0; }
+  nav.main-links a.current{ opacity:1; color: var(--marigold); }
+  nav.main-links a::after{ content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; background: var(--marigold); transform:scaleX(0); transform-origin:left; transition: transform .3s ease; }
+  nav.main-links a:hover{ opacity:1; }
+  nav.main-links a:hover::after{ transform: scaleX(1); }
+  .nav-toggle{ display:none; background:none; border:none; color: var(--ivory); font-size:1.4rem; cursor:pointer; }
+  @media (max-width: 980px){
+    nav.main-links{ position:fixed; inset:0 0 0 auto; width:min(320px,84vw); height:100vh; background: var(--forest-deep); flex-direction:column; align-items:flex-start; padding:100px 32px 32px; gap:22px; transform:translateX(100%); transition: transform .4s ease; box-shadow:-10px 0 40px rgba(0,0,0,0.3); }
+    nav.main-links.open{ transform: translateX(0); }
+    .nav-toggle{ display:block; }
+    .nav-cta .btn-marigold{ display:none; }
+  }
 
-        .form {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
-            text-align: center;
-        }
+  /* ============ PAGE BANNER ============ */
+  .page-banner{ position:relative; background: var(--forest-deep); color: var(--ivory); padding: 190px 0 90px; overflow:hidden; }
+  .page-banner::before{ content:""; position:absolute; inset:0; opacity:0.5; background-image: radial-gradient(circle at 15% 20%, rgba(227,165,62,0.1), transparent 40%), radial-gradient(circle at 85% 90%, rgba(227,165,62,0.07), transparent 45%); }
+  .page-banner .inner{ position:relative; z-index:1; }
+  .page-banner h1{ font-size: clamp(1.8rem,4.5vw,2.9rem); margin: 14px 0 12px; }
+  .breadcrumb{ font-size:0.9rem; color: rgba(244,240,227,0.65); }
+  .breadcrumb a{ color: var(--marigold); }
 
-        .form h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            font-family: 'Roboto', sans-serif;
-        }
+  /* ============ LOGIN ============ */
+  #login{ padding: 90px 0 110px; }
+  .login-wrap{ max-width: 460px; margin: 0 auto; }
+  .login-head{ text-align:center; margin-bottom: 34px; }
+  .login-head h2{ font-size: clamp(1.5rem, 2.8vw, 1.9rem); margin: 14px 0 14px; }
+  .login-head p{ color: var(--ink-soft); font-size:0.92rem; margin:0; }
+  .login-head p a{ color: var(--clay); font-weight:700; }
 
-        .form p {
-            font-size: 16px;
-            margin-bottom: 30px;
-            font-family: 'Roboto', sans-serif;
-            color: #777;
-        }
+  .login-card{ background: var(--ivory); border: 1px solid var(--line); padding: 36px; position:relative; }
+  .login-card::before{
+    content:"Workshop Database"; position:absolute; top:0; right:0; transform: translateY(-50%);
+    background: var(--clay); color: var(--ivory); font-size:0.68rem; font-weight:700; letter-spacing:0.08em;
+    text-transform:uppercase; padding: 6px 14px; border-radius:100px;
+  }
+  form#adminLoginForm{ display:flex; flex-direction:column; gap:16px; }
+  .row2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+  @media (max-width:480px){ .row2{ grid-template-columns:1fr; } }
 
-        .form .form-control {
-            border-radius: 25px;
-            padding: 15px;
-            margin-bottom: 20px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            transition: border-color 0.3s ease;
-        }
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field label{ font-size:0.76rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color: var(--ink-soft); }
+  input[type="text"], input[type="number"], input[type="password"]{
+    font-family: var(--font-body); font-size:0.95rem; padding:13px 16px;
+    border: 1px solid var(--line); border-radius:2px; background: var(--paper); color: var(--ink);
+    outline-offset: 2px; width:100%;
+  }
+  input:focus{ outline: 2px solid var(--marigold-deep); border-color: var(--marigold-deep); }
 
-        .form .form-control:focus {
-            border-color: #6f42c1;
-            box-shadow: 0 0 5px rgba(111, 66, 193, 0.5);
-        }
+  .remember{ display:flex; align-items:center; gap:10px; font-size:0.88rem; color: var(--ink-soft); }
+  .remember input{ width:16px; height:16px; accent-color: var(--marigold-deep); }
 
-        .form button {
-            background-color: #6f42c1;
-            color: #fff;
-            font-size: 18px;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+  .login-actions{ display:flex; flex-direction:column; gap:12px; margin-top:6px; }
+  .login-actions .btn{ width:100%; }
 
-        .form button:hover {
-            background-color: #5a2d99;
-        }
+  .login-help{ margin-top: 26px; text-align:center; font-size:0.84rem; color: var(--ink-soft); }
+  .login-help a{ color: var(--clay); font-weight:700; }
 
-        .form .custom-control-label {
-            font-size: 14px;
-            color: #777;
-        }
+  /* ============ FOOTER ============ */
+  footer{ background: var(--forest-deep); color: rgba(244,240,227,0.7); padding:56px 0 28px; }
+  .footer-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:32px; flex-wrap:wrap; padding-bottom:36px; border-bottom:1px solid var(--line-light); }
+  .footer-brand{ max-width:340px; }
+  .footer-brand .brand{ margin-bottom:14px; }
+  .footer-brand p{ font-size:0.88rem; }
+  .footer-social{ display:flex; gap:12px; margin-top:16px; }
+  .footer-social a{ width:38px; height:38px; border-radius:50%; border:1px solid var(--line-light); display:flex; align-items:center; justify-content:center; transition: all .25s ease; }
+  .footer-social a:hover{ background: var(--marigold); color: var(--forest-deep); border-color: var(--marigold); }
+  .footer-links{ display:flex; gap:64px; flex-wrap:wrap; }
+  .footer-links h5{ font-family: var(--font-body); color: var(--ivory); font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px; }
+  .footer-links ul{ display:grid; gap:10px; }
+  .footer-links a{ font-size:0.88rem; }
+  .footer-links a:hover{ color: var(--marigold); }
+  .footer-bottom{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; padding-top:24px; font-size:0.8rem; }
+  .footer-bottom a{ color: var(--marigold); }
 
-        .form .custom-control-input:checked ~ .custom-control-label::before {
-            background-color: #6f42c1;
-        }
-        .view-more-btn {
-        margin-top: 30px;
-    }
+  .back-to-top{
+    position:fixed; right:26px; bottom:26px; z-index:400; width:46px; height:46px;
+    background: var(--forest); color: var(--ivory); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none;
+    transform: translateY(10px); transition: all .3s ease; box-shadow: 0 10px 26px rgba(0,0,0,0.25);
+  }
+  .back-to-top.show{ opacity:1; pointer-events:auto; transform:translateY(0); }
+  .back-to-top:hover{ background: var(--marigold-deep); }
 
-    #view-more-link {
-        text-decoration: none; /* Remove the underline from the link */
-    }
-
-    #view-more {
-        background-color: #00bcd4; /* Start with a nice color */
-        color: white;
-        font-size: 16px;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        outline: none;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        animation: colorChange 3s infinite linear; /* Continuous color change animation */
-    }
-
-    #view-more:hover {
-        background-color: white;
-        transform: scale(1.05);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    #view-more:active {
-        background-color: white;
-        transform: scale(0.98);
-    }
-
-    @keyframes colorChange {
-        0% { background-color: #00bcd4; }
-        25% { background-color: #ff4081; }
-        50% { background-color: #8e24aa; }
-        75% { background-color: #7c4dff; }
-        100% { background-color: #00bcd4; }
-    }
-    </style>
+  .reveal{ opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+</style>
 </head>
 
 <body>
-    <!-- Header Section Start -->
-    <div class="menu"> <span></span> </div>
-    <nav id="nav">
-        <ul class="main">
-            <ul class="main">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="teacher.html">Professional Yoga Teachers</a></li>
-                <li><a href="Admission Form.html">Online Admission Form</a></li>
-                <li><a href="class.html">Classes</a></li>
-                <li><a href="blog.html">Latest Blog</a></li>
-                <li><a href="login.html">Admin Login</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </nav>
-    <div class="overlay"></div>
 
-    <div class="header banner">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1><a class="brand" href="index.html"> Welcome to Ananta Yoga</a></h1>
-                </div>
-            </div>
+  <!-- ============ NAV ============ -->
+  <header class="site-nav" id="siteNav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="logo/logo.jpg" alt="Ananta Yoga logo">
+        <span>Ananta <em>Yoga</em></span>
+      </a>
 
-            <div class="col-md-12">
-                <h1>Home / Admin Login  For Workshop Database</h1>
-            </div>
-        </div>
+      <nav class="main-links" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="teacher.html">Teachers</a>
+        <a href="class.html">Classes</a>
+        <a href="blog.html">Blog</a>
+        <a href="Admission%20Form.html">Admission</a>
+        <a href="login.html" class="current">Admin Login</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="Admission%20Form.html" class="btn btn-marigold">Book Free Demo</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
     </div>
-    <!-- Header Section End -->
+  </header>
 
-    <!-- Login Section Start -->
-    <section id="login">
-        <div class="container">
-            <div class="section-header">
-                <p>
-                <h2>Admin Login For Workshop Database</h2>
-                    <br> If you have forgotten your User ID, Center Code, and Password , please send mail to (skmphelpline@gmail.com) for assistance.
-                </p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6 form">
-                    <form id="adminLoginForm">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <input type="text" id="userId" class="form-control" placeholder="User Id" required />
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="number" id="centerCode" class="form-control" placeholder="Enter Center Code" required />
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <input type="password" id="password" class="form-control" placeholder="Your Password" required />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="remember1">
-                                <label class="custom-control-label" for="remember1">Remember me</label>
-                            </div>
-                        </div>
-                        <div>
-                            
-                                    <button id="view-more" type="submit" class="btn btn-primary btn-block animate__animated animate__pulse">Login</button>
-                                   <a href="login.html" id="view-more" type="button" class="btn btn-reset btn-block" > GO TO STUDENT DATABASE LOGIN</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-    <!-- Login Section end -->
-
-    <!-- Footer Section Start -->
-    <div id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="social">
-                        <a href="https://www.instagram.com/praveerpattanayak?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><li class="fa fa-instagram"></li></a>
-                
-                        <a href="https://www.facebook.com/share/1ZQw247WaA/"><li class="fa fa-facebook-f"></li></a>
-                        
-                    </div>
-                </div>
-                <div class="col-12">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="Admission Form.html">online Admission Form</a></li>
-                        <li><a href="term and condition.html">Terms and Conditions</a></li>
-                        <li><a href="privaypolicy.html">Privacy Policy</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-               <div class="col-12">
-              <p>&copy; Copyright 2026 <a href="index.html">Ananta Yoga(Yoga For Life)</a>. All rights reserved| Last update on 15/01/2026 | TIME=06.15pm</p>
-              <p>Designed and Maintained by <a
-                  href="https://suzen-kumar-mohanty-8fdv.vercel.app/">Er-Suzen
-                  kumar Mohanty
-                </a></p>
-            </div>
-            </div>
-        </div>
+  <!-- ============ PAGE BANNER ============ -->
+  <div class="page-banner">
+    <div class="container inner">
+      <span class="eyebrow">Staff Access</span>
+      <h1>Admin Login for Workshop Database</h1>
+      <p class="breadcrumb"><a href="index.html">Home</a> / Admin Login for Workshop Database</p>
     </div>
-</div>
-    <!-- Footer Section End -->
+  </div>
 
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- ============ LOGIN ============ -->
+  <section id="login">
+    <div class="container">
+      <div class="login-wrap">
+        <div class="login-head reveal">
+          <span class="eyebrow">Ananta Yoga (Yoga For Life)</span>
+          <h2>Sign in to the workshop database</h2>
+          <p>Forgotten your User ID, Center Code or Password? Email <a href="mailto:skmphelpline@gmail.com">skmphelpline@gmail.com</a> for assistance.</p>
+        </div>
 
-    <!-- Vendor JavaScript File -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/jquery/jquery-migrate.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/easing/easing.min.js"></script>
-    <script src="vendor/wow/wow.min.js"></script>
+        <div class="login-card reveal">
+          <form id="adminLoginForm">
+            <div class="row2">
+              <div class="field">
+                <label for="userId">User ID</label>
+                <input type="text" id="userId" placeholder="User Id" required>
+              </div>
+              <div class="field">
+                <label for="centerCode">Center code</label>
+                <input type="number" id="centerCode" placeholder="Enter Center Code" required>
+              </div>
+            </div>
 
-    <!-- Main Javascript File -->
-    <script src="js/main.js"></script>
-    
-    <!-- EmailJS CDN -->
-<script src="https://script.google.com/macros/s/AKfycbwLRz8NrXuFNskf55k-3x6e2F3QYp1rGvLdukBz-MCfAmF_EsiTqjvZeqmfoTjhEQ/exec"></script>
+            <div class="field">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="Your Password" required>
+            </div>
 
-    <script src="js/script2.js"></script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B8L0MSB3QK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+            <label class="remember">
+              <input type="checkbox" id="remember1">
+              Remember me
+            </label>
 
-  gtag('config', 'G-B8L0MSB3QK');
-</script>
-<script src="js/email.js"></script>
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<!-- Vendor JavaScript File -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/jquery/jquery-migrate.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="vendor/easing/easing.min.js"></script>
-<script src="vendor/wow/wow.min.js"></script>
+            <div class="login-actions">
+              <button type="submit" class="btn btn-marigold">Login</button>
+              <a href="login.html" class="btn btn-outline-dark">Go to Student Database Login</a>
+            </div>
+          </form>
+        </div>
+
+        <p class="login-help">Not an admin? <a href="index.html">Return to the homepage</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand"><img src="logo/logo.jpg" alt="Ananta Yoga logo"><span>Ananta <em>Yoga</em></span></a>
+          <p>Yoga For Life — holistic wellness through asana, pranayama and meditation, in Balasore, Odisha.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/praveerpattanayak?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1ZQw247WaA/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h5>Explore</h5>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="Admission%20Form.html">Online Admission Form</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="term%20and%20condition.html">Terms &amp; Conditions</a></li>
+              <li><a href="privaypolicy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; Copyright 2026 <a href="index.html">Ananta Yoga (Yoga For Life)</a>. All rights reserved.</p>
+        <p>Designed and maintained by <a href="https://suzen-kumar-mohanty-8fdv.vercel.app/" target="_blank" rel="noopener">Er. Suzen Kumar Mohanty</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa fa-chevron-up"></i></a>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('show', window.scrollY > 500);
+    }, { passive: true });
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.innerHTML = isOpen ? '<i class="fa fa-times"></i>' : '<i class="fa fa-bars"></i>';
+    });
+    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      navToggle.innerHTML = '<i class="fa fa-bars"></i>';
+    }));
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => io.observe(el));
+  </script>
+
+  <!-- Site script that powers the actual login logic for this database (kept as-is) -->
+  <script src="js/script2.js"></script>
+
+  <!-- Google Apps Script endpoint used by the original login flow -->
+  <script src="https://script.google.com/macros/s/AKfycbwLRz8NrXuFNskf55k-3x6e2F3QYp1rGvLdukBz-MCfAmF_EsiTqjvZeqmfoTjhEQ/exec"></script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="js/email.js"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8L0MSB3QK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-B8L0MSB3QK');
+  </script>
+
 </body>
 </html>

@@ -2,127 +2,208 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Site Map | Ananta Yoga</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Site Map | Ananta Yoga (Yoga For Life)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Full site map of Ananta Yoga (Yoga For Life) — find every page on the site in one place.">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600|Pacifico&display=swap" rel="stylesheet">
+<!-- Favicons -->
+<link href="logo/logo.jpg" rel="icon">
+<link href="logo/logo.jpg" rel="apple-touch-icon">
 
-    <!-- Font Awesome for Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Bootstrap CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  /* ============ TOKENS (shared with index.html / teacher.html) ============ */
+  :root{
+    --forest: #16302A;
+    --forest-deep: #0D211B;
+    --marigold: #E3A53E;
+    --marigold-deep: #C4841E;
+    --clay: #AA4A2E;
+    --ivory: #F4F0E3;
+    --paper: #FBF9F2;
+    --ink: #1B241E;
+    --ink-soft: #4B564E;
+    --line: rgba(27,36,30,0.12);
+    --line-light: rgba(244,240,227,0.18);
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Manrope', sans-serif;
+    --container: 1180px;
+  }
 
-    <!-- Custom CSS -->
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
-            color: #333;
-            padding-top: 50px;
-        }
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+  }
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease-out;
-        }
+  body{ margin:0; font-family: var(--font-body); color: var(--ink); background: var(--paper); line-height:1.6; -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; margin:0; padding:0; }
+  .container{ max-width: var(--container); margin:0 auto; padding: 0 24px; }
+  h1,h2{ font-family: var(--font-display); margin:0; font-weight:600; letter-spacing:-0.01em; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family: var(--font-body); font-weight:700; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color: var(--marigold-deep); }
+  .eyebrow::before{ content:""; width:20px; height:1px; background: var(--marigold-deep); display:inline-block; }
+  .btn{ display:inline-flex; align-items:center; gap:10px; padding:14px 30px; border-radius:100px; font-weight:700; font-size:0.95rem; border:1px solid transparent; cursor:pointer; transition: all .25s ease; }
+  .btn-marigold{ background: var(--marigold); color: var(--forest-deep); }
+  .btn-marigold:hover{ background: var(--marigold-deep); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(196,132,30,0.35); }
 
-        h1 {
-            font-family: 'Pacifico', cursive;
-            font-size: 2.5rem;
-            text-align: center;
-            color: #b100d4;
-            margin-bottom: 40px;
-        }
+  /* ============ NAV ============ */
+  header.site-nav{ position:fixed; top:0; left:0; right:0; z-index:500; padding:20px 0; background: var(--forest-deep); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .brand{ display:flex; align-items:center; gap:12px; font-family: var(--font-display); color: var(--ivory); font-size:1.3rem; font-weight:600; }
+  .brand img{ width:42px; height:42px; border-radius:50%; object-fit:cover; border:2px solid var(--marigold); }
+  .brand span em{ font-style:italic; color: var(--marigold); }
+  nav.main-links{ display:flex; align-items:center; gap:30px; }
+  nav.main-links a{ color: var(--ivory); font-size:0.92rem; font-weight:600; opacity:0.85; position:relative; padding:4px 0; }
+  nav.main-links a::after{ content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; background: var(--marigold); transform:scaleX(0); transform-origin:left; transition: transform .3s ease; }
+  nav.main-links a:hover{ opacity:1; }
+  nav.main-links a:hover::after{ transform: scaleX(1); }
+  .nav-toggle{ display:none; background:none; border:none; color: var(--ivory); font-size:1.4rem; cursor:pointer; }
+  @media (max-width: 980px){
+    nav.main-links{ position:fixed; inset:0 0 0 auto; width:min(320px,84vw); height:100vh; background: var(--forest-deep); flex-direction:column; align-items:flex-start; padding:100px 32px 32px; gap:22px; transform:translateX(100%); transition: transform .4s ease; box-shadow:-10px 0 40px rgba(0,0,0,0.3); }
+    nav.main-links.open{ transform: translateX(0); }
+    .nav-toggle{ display:block; }
+    .nav-cta .btn-marigold{ display:none; }
+  }
 
-        ul.sitemap {
-            list-style: none;
-            padding-left: 0;
-        }
+  /* ============ PAGE BANNER ============ */
+  .page-banner{ position:relative; background: var(--forest-deep); color: var(--ivory); padding: 190px 0 90px; overflow:hidden; }
+  .page-banner::before{ content:""; position:absolute; inset:0; opacity:0.5; background-image: radial-gradient(circle at 15% 20%, rgba(227,165,62,0.1), transparent 40%), radial-gradient(circle at 85% 90%, rgba(227,165,62,0.07), transparent 45%); }
+  .page-banner .inner{ position:relative; z-index:1; }
+  .page-banner h1{ font-size: clamp(2rem,5vw,3.2rem); margin: 14px 0 12px; }
+  .breadcrumb{ font-size:0.9rem; color: rgba(244,240,227,0.65); }
+  .breadcrumb a{ color: var(--marigold); }
 
-        ul.sitemap li {
-            padding: 12px 20px;
-            border-bottom: 1px solid #eee;
-            transition: all 0.3s ease;
-        }
+  /* ============ SITEMAP LIST ============ */
+  #sitemap{ padding: 90px 0 110px; }
+  .sitemap-intro{ max-width: 640px; margin: 0 auto 48px; text-align:center; }
+  .sitemap-intro p{ color: var(--ink-soft); margin: 14px 0 0; }
 
-        ul.sitemap li:hover {
-            background-color: #f9f9f9;
-            transform: translateX(5px);
-        }
+  .sitemap-grid{
+    max-width: 760px; margin: 0 auto; border: 1px solid var(--line); background: var(--ivory);
+  }
+  .sitemap-grid li{ border-bottom: 1px solid var(--line); }
+  .sitemap-grid li:last-child{ border-bottom:none; }
+  .sitemap-grid a{
+    display:flex; align-items:center; gap:18px; padding: 20px 28px; font-weight:700; font-size:1rem;
+    transition: background .25s ease, padding-left .25s ease, color .25s ease;
+  }
+  .sitemap-grid a:hover{ background: var(--paper); padding-left: 36px; color: var(--clay); }
+  .sitemap-grid .num{
+    font-family: var(--font-display); font-size:0.85rem; color: var(--marigold-deep); width:28px; flex-shrink:0;
+  }
+  .sitemap-grid .icon{ width:20px; text-align:center; color: var(--marigold-deep); flex-shrink:0; }
+  .sitemap-grid .label{ flex:1; }
+  .sitemap-grid .arrow{ opacity:0; transform: translateX(-6px); transition: all .25s ease; color: var(--clay); }
+  .sitemap-grid a:hover .arrow{ opacity:1; transform: translateX(0); }
 
-        ul.sitemap li a {
-            color: #a512df;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
+  /* ============ FOOTER ============ */
+  footer{ background: var(--forest-deep); color: rgba(244,240,227,0.7); padding:40px 0 28px; }
+  .footer-bottom{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:0.8rem; }
+  .footer-bottom a{ color: var(--marigold); }
 
-        ul.sitemap li a:hover {
-            color: #ff4081;
-        }
-
-        .icon {
-            margin-right: 10px;
-            color: #aa00d4;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+  .reveal{ opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+</style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>🌐 Site Map Ananta Yoga(Yoga for life)</h1>
-        <ul class="sitemap">
-            <li><i class="fas fa-home icon"></i><a href="index.html">Home</a></li>
-            <li><i class="fas fa-user-tie icon"></i><a href="teacher.html">Professional Yoga Teachers</a></li>
-            <li><i class="fas fa-file-alt icon"></i><a href="Admission Form.html">Online Admission Form</a></li>
-            <li><i class="fas fa-spa icon"></i><a href="class.html">Classes</a></li>
-            <li><i class="fas fa-blog icon"></i><a href="blog.html">Latest Blog</a></li>
-            <li><i class="fas fa-sign-in-alt icon"></i><a href="login.html">Admin Login</a></li>
-            <li><i class="fas fa-envelope icon"></i><a href="contact.html">Contact Us</a></li>
-            <li><i class="fas fa-gavel icon"></i><a href="term and condition.html">Terms and Conditions</a></li>
-            <li><i class="fas fa-shield-alt icon"></i><a href="privaypolicy.html">Privacy Policy</a></li>
-        </ul>
-    </div>
-    <div class="col-12">
-        <p>&copy; Copyright 2026 <a href="index.html">Ananta Yoga(Yoga For Life)</a>. All rights reserved| Last update
-            on 08/03/2026 | TIME=09.15pm</p>
-        <p>Designed and Maintained by <a href="https://suzen-kumar-mohanty-8fdv.vercel.app/">Er-Suzen
-                kumar Mohanty
-            </a></p>
-    </div>
-</body>
+  <!-- ============ NAV ============ -->
+  <header class="site-nav" id="siteNav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="logo/logo.jpg" alt="Ananta Yoga logo">
+        <span>Ananta <em>Yoga</em></span>
+      </a>
 
+      <nav class="main-links" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="teacher.html">Teachers</a>
+        <a href="class.html">Classes</a>
+        <a href="blog.html">Blog</a>
+        <a href="Admission%20Form.html">Admission</a>
+        <a href="login.html">Admin Login</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="Admission%20Form.html" class="btn btn-marigold">Book Free Demo</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE BANNER ============ -->
+  <div class="page-banner">
+    <div class="container inner">
+      <span class="eyebrow">Find Your Way</span>
+      <h1>Site Map</h1>
+      <p class="breadcrumb"><a href="index.html">Home</a> / Site Map</p>
+    </div>
+  </div>
+
+  <!-- ============ SITEMAP ============ -->
+  <section id="sitemap">
+    <div class="container">
+      <div class="sitemap-intro reveal">
+        <span class="eyebrow">Ananta Yoga (Yoga For Life)</span>
+        <p>Every page on the site, in one place.</p>
+      </div>
+
+      <ul class="sitemap-grid reveal">
+        <li><a href="index.html"><span class="num">01</span><i class="fa fa-home icon"></i><span class="label">Home</span><i class="fa fa-long-arrow-right arrow"></i></a></li>
+        <li><a href="teacher.html"><span class="num">02</span><i class="fa fa-user-o icon"></i><span class="label">Professional Yoga Teachers</span><i class="fa fa-long-arrow-right arrow"></i></a></li>
+        <li><a href="Admission%20Form.html"><span class="num">03</span><i class="fa fa-file-text-o icon"></i><span class="label">Online Admission Form</span><i class="fa fa-long-arrow-right arrow"></i></a></li>
+        <li><a href="class.html"><span class="num">04</span><i class="fa fa-heartbeat icon"></i><span class="label">Classes</span><i class="fa fa-long-arrow-right arrow"></i></a></li>
+        <li><a href="blog.html"><span class="num">05</span><i class="fa fa-pencil icon"></i><span class="label">Latest Blog</span><i class="fa fa-long-arrow-right arrow"></i></a></li>
+        <li><a href="login.html"><span class="num">06</span><i class="fa fa-sign-in icon"></i><span class="label">Admin Login</span><i class="fa fa-long-arrow-right arrow"></i></a></li>
+        <li><a href="contact.html"><span class="num">07</span><i class="fa fa-envelope-o icon"></i><span class="label">Contact Us</span><i class="fa fa-long-arrow-right arrow"></i></a></li>
+        <li><a href="term%20and%20condition.html"><span class="num">08</span><i class="fa fa-gavel icon"></i><span class="label">Terms and Conditions</span><i class="fa fa-long-arrow-right arrow"></i></a></li>
+        <li><a href="privaypolicy.html"><span class="num">09</span><i class="fa fa-shield icon"></i><span class="label">Privacy Policy</span><i class="fa fa-long-arrow-right arrow"></i></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container footer-bottom">
+      <p>&copy; Copyright 2026 <a href="index.html">Ananta Yoga (Yoga For Life)</a>. All rights reserved.</p>
+      <p>Designed and maintained by <a href="https://suzen-kumar-mohanty-8fdv.vercel.app/" target="_blank" rel="noopener">Er. Suzen Kumar Mohanty</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.innerHTML = isOpen ? '<i class="fa fa-times"></i>' : '<i class="fa fa-bars"></i>';
+    });
+    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      navToggle.innerHTML = '<i class="fa fa-bars"></i>';
+    }));
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => io.observe(el));
+  </script>
+
+</body>
 </html>
