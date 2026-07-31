@@ -157,6 +157,18 @@
   }
   @media (max-width:800px){ .intro-grid{ grid-template-columns:1fr; gap:24px; } }
 
+  /* ---------- DAKHINESWAR COMPETITION GALLERY ---------- */
+  .competition{ padding:70px 0 30px; background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .competition-head{ text-align:center; max-width:700px; margin:0 auto 46px; padding:0 24px; }
+  .competition-head h2{ font-size:clamp(1.9rem,3.6vw,2.7rem); margin:10px 0 14px; }
+  .competition-head p{ color:var(--ink-soft); }
+  .competition-badges{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:20px; }
+  .competition-badges span{
+    border:1px solid var(--line); border-radius:999px; padding:7px 16px; font-size:.82rem; color:var(--ink-soft);
+    background:var(--paper);
+  }
+  .comp-more-toggle{ text-align:center; margin:38px 0 0; }
+
   /* ---------- YOGA DAY GARLAND GALLERY ---------- */
   .glamps{ padding:60px 0 40px; position:relative; }
   .glamps-head{ text-align:center; max-width:680px; margin:0 auto 46px; padding:0 24px; }
@@ -346,6 +358,46 @@
   </div>
 </section>
 
+<!-- ---------- DAKHINESWAR KALI TEMPLE YOGA COMPETITION, KOLKATA ---------- -->
+<section class="competition" id="dakhineswar-competition">
+  <div class="competition-head">
+    <span class="eyebrow">Kolkata · Dakhineswar Kali Temple</span>
+    <h2>Yoga Competition at Dakhineswar</h2>
+    <p>Our students took the stage at the yoga competition held near Dakhineswar Kali Temple, Kolkata — poised asanas, focused breath, and a proud showing for Ananta Yoga.</p>
+    <div class="competition-badges">
+      <span>Asana rounds</span>
+      <span>Group demonstration</span>
+      <span>Prize winners</span>
+      <span>Dakhineswar, Kolkata</span>
+    </div>
+  </div>
+
+  <div class="mosaic" id="mosaicCompMain">
+    <a href="./kolkota yoga/1.jfif" class="tall"><img src="./kolkota yoga/1.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/10.jfif" class="sq"><img src="./kolkota yoga/10.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/11.jfif" class="wide"><img src="./kolkota yoga/11.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/12.jfif" class="sq"><img src="./kolkota yoga/12.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/13.jfif" class="tall"><img src="./kolkota yoga/13.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/14.jfif" class="sq"><img src="./kolkota yoga/14.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/15.jfif" class="sq"><img src="./kolkota yoga/15.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/2.jfif" class="sq"><img src="./kolkota yoga/2.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+  </div>
+
+  <div class="mosaic hidden-set" id="mosaicCompMore">
+    <a href="./kolkota yoga/3.jfif" class="sq"><img src="./kolkota yoga/3.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/4.jfif" class="sq"><img src="./kolkota yoga/4.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/5.jfif" class="sq"><img src="./kolkota yoga/5.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/6.jfif" class="sq"><img src="./kolkota yoga/6.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/7.jfif" class="sq"><img src="./kolkota yoga/7.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/8.jfif" class="sq"><img src="./kolkota yoga/8.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+    <a href="./kolkota yoga/9.jfif" class="sq"><img src="./kolkota yoga/9.jfif" alt="Dakhineswar yoga competition moment" loading="lazy"></a>
+  </div>
+
+  <div class="comp-more-toggle">
+    <button class="btn" id="compMoreBtn" style="background:transparent; border:1.5px solid var(--rust); color:var(--rust);">Show more moments</button>
+  </div>
+</section>
+
 <!-- ---------- YOGA DAY GLAMPS GALLERY (signature section) ---------- -->
 <section class="glamps" id="glamps">
   <div class="glamps-head">
@@ -356,6 +408,7 @@
 
   <div class="thread-wrap">
     <div class="thread-line"></div>
+
     <div class="mala">
       <div class="bead"><div class="string"></div><div class="photo"><img src="img/jitu/yoga day/1.jpg" alt="International Yoga Day 2026 gathering" loading="lazy"></div><span class="tag">sunrise circle</span></div>
       <div class="bead"><div class="string"></div><div class="photo"><img src="img/jitu/yoga day/2.jfif" alt="International Yoga Day 2026 gathering" loading="lazy"></div><span class="tag">first breath</span></div>
@@ -540,6 +593,13 @@
   const toggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+  const compMoreBtn = document.getElementById('compMoreBtn');
+  const compMoreSet = document.getElementById('mosaicCompMore');
+  compMoreBtn.addEventListener('click', () => {
+    const showing = compMoreSet.classList.toggle('show');
+    compMoreBtn.textContent = showing ? 'Show fewer moments' : 'Show more moments';
+  });
 
   const moreBtn = document.getElementById('moreBtn');
   const moreSet = document.getElementById('mosaicMore');
